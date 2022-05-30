@@ -12,26 +12,28 @@ const boxesEl = document.querySelector('#boxes');
 createEl.addEventListener('click', createBox);
 destroyEl.addEventListener('click', destroyBox);
 
-const getInpVal = Number(inputEl.value);
+function getInpVal() {
+  return inputEl.value;
+}
 
 function createBox() {
   const newBoxes = [];
-  const amount = getInpVal;
-  for(let i=0; i<amount; i++) {
-    const color = getRandomHexColor;
+  const amount = getInpVal();
+  for(let i=0; i<amount; i+=1) {
+    const color = getRandomHexColor();
     const newBox = document.createElement('div');
+    newBox.classList.add('my__boxes__' + (i+1));
     newBox.style.backgroundColor = color;
-    newBox.style.width = 30 + 10*i;
-    newBox.style.height = 30 + 10*i;
-    newBox.style.display = 'flex';
-    newBox.style.flexDirection = 'row';
-    newBox.style.justifyContent = 'space-between';
-    newBoxes.push(newBox);
+    newBox.style.boxSizing = 'border-box';
+    newBox.style.width = (30 + 10*i) + 'px';
+    newBox.style.height = (30 + 10*i) + 'px';
+    newBoxes.style.display = 'flex';
+    newBoxes.style.flexDirection = 'row';
+    newBoxes.style.justifyContent = 'space-between';
+    boxesEl.insertAdjacentHTML('beforeend', newBox);
+    newBoxes.push(newBox);    
   }
   boxesEl.append(...newBoxes);
-
 }
 
-function destroyBox() {
-
-}
+function destroyBox() { }
