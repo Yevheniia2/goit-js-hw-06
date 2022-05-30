@@ -27,9 +27,9 @@ function createBox() {
     newBox.style.boxSizing = 'border-box';
     newBox.style.width = (30 + 10*i) + 'px';
     newBox.style.height = (30 + 10*i) + 'px';
-    newBoxes.style.display = 'flex';
-    newBoxes.style.flexDirection = 'row';
-    newBoxes.style.justifyContent = 'space-between';
+    // newBoxes.style.display = 'flex';
+    // newBoxes.style.flexDirection = 'row';
+    // newBoxes.style.justifyContent = 'space-between';
     boxesEl.insertAdjacentHTML('beforeend', newBox);
     newBoxes.push(newBox);    
   }
