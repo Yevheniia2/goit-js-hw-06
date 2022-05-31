@@ -22,18 +22,26 @@ function createBox() {
   for(let i=0; i<amount; i+=1) {
     const color = getRandomHexColor();
     const newBox = document.createElement('div');
-    newBox.classList.add('my__boxes__' + (i+1));
+    newBox.classList.add('my__boxes');
     newBox.style.backgroundColor = color;
-    newBox.style.boxSizing = 'border-box';
     newBox.style.width = (30 + 10*i) + 'px';
     newBox.style.height = (30 + 10*i) + 'px';
-    // newBoxes.style.display = 'flex';
-    // newBoxes.style.flexDirection = 'row';
-    // newBoxes.style.justifyContent = 'space-between';
-    boxesEl.insertAdjacentHTML('beforeend', newBox);
+    newBox.style.margin = 10 + 'px';
+    boxesEl.insertAdjacentElement('beforeend', newBox);
     newBoxes.push(newBox);    
   }
   boxesEl.append(...newBoxes);
 }
 
-function destroyBox() { }
+boxesEl.style.display = 'flex';
+boxesEl.style.flexWrap = 'wrap';
+boxesEl.style.flexDirection = 'row';
+boxesEl.style.justifyContent = 'space-between';
+const myBoxes = document.querySelector('.my__boxes');
+
+function destroyBox() {
+  let dlt = document.querySelectorAll('.my__boxes');
+  for(let i = 0; i < dlt.length; i+=1){
+    dlt[i].outerHTML = "";
+  }
+}
